@@ -1,0 +1,108 @@
+.page-container {
+  padding: 5rem 3rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+  color: #fff;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #0b0b0b, #1c1c1c);
+  animation: fadeInPage 0.5s ease-in-out;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: 1400px;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-title {
+  font-size: 2.8rem;
+  color: #e50914;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(229, 9, 20, 0.4), 0 0 20px rgba(229, 9, 20, 0.2);
+}
+
+/* Grid layout for movie cards */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.movies-grid > * {
+  animation: fadeInCard 0.4s ease-out forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movies-grid > *:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(229, 9, 20, 0.15);
+}
+
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Empty state */
+.empty-message {
+  text-align: center;
+  padding: 4rem 2.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  margin: 3rem auto;
+  max-width: 600px;
+  font-size: 1.25rem;
+  color: #bbbbbb;
+  line-height: 1.8;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.03);
+  font-style: italic;
+  font-family: 'Poppins', sans-serif;
+}
+
+.empty-message::before {
+  content: "🎬";
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+}

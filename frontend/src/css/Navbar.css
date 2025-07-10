@@ -1,0 +1,305 @@
+/* ---------- Navbar Base Styles ---------- */
+.navbar {
+  background: rgba(15, 15, 15, 0.7);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  animation: navFade 0.4s ease-in-out;
+  flex-wrap: wrap;
+}
+
+@keyframes navFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-brand .brand-link {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff304f;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.navbar-brand .brand-link:hover {
+  transform: scale(1.08);
+  text-shadow: 0 0 10px #ff304f, 0 0 20px #ff304f;
+}
+
+.logo-text {
+  margin-left: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ---------- Navbar Links ---------- */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+  margin-left: 12rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #ddd;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ff304f;
+  box-shadow: 0 0 10px #ff304f;
+}
+
+/* ---------- Auth Buttons ---------- */
+.navbar-auth {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.auth-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.login-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.login-btn:hover {
+  background-color: #222;
+  transform: translateY(-2px);
+  border-color: #ff304f;
+  color: #ff304f;
+}
+
+.signup-btn {
+  background: linear-gradient(135deg, #ff304f, #ff5f7e);
+  color: white;
+}
+
+.signup-btn:hover {
+  background: linear-gradient(135deg, #ff1f3d, #ff7394);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px #ff5f7e;
+}
+
+/* ---------- Profile Dropdown ---------- */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: #121212;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-btn:hover {
+  background: #1a1a1a;
+  box-shadow: 0 0 10px #ff304f99;
+}
+
+.avatar-initials {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff304f, #ff5f7e);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #ff304f90;
+  animation: popIn 0.4s ease forwards;
+}
+
+.profile-btn:hover .avatar-initials {
+  transform: scale(1.1);
+}
+
+.user-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  min-width: 180px;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.profile-dropdown.open .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 14px 18px;
+  color: #eee;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #222;
+  color: #fff;
+}
+
+.logout-btn {
+  background: none;
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  border: none;
+  color: #ff4c4c;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background-color: #3c0b0b;
+  color: #fff;
+}
+
+/* ---------- Hamburger Toggle ---------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* ---------- Mobile Responsive Styles ---------- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar.show .navbar-links {
+    display: flex;
+  }
+
+  .navbar-auth {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar-links .nav-link {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Desktop Re-Enable ---------- */
+@media (min-width: 769px) {
+  .navbar-links {
+    display: flex !important;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

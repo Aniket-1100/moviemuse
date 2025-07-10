@@ -1,0 +1,121 @@
+.home {
+  padding: 2rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: white;
+  animation: fadeInHome 0.6s ease-in-out;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+@keyframes fadeInHome {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-form {
+  max-width: 620px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.search-form:hover {
+  transform: scale(1.015);
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #242424;
+  color: #f0f0f0;
+  font-size: 1rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: #333;
+  box-shadow: 0 0 10px #e50914;
+}
+
+.search-button {
+  padding: 0.8rem 1.6rem;
+  background: linear-gradient(145deg, #e50914, #ff3c38);
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.2s ease, box-shadow 0.3s;
+  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.4);
+}
+
+.search-button:hover {
+  background-color: #ff1a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(255, 20, 20, 0.5);
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeInCards 0.5s ease-in;
+}
+
+@keyframes fadeInCards {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.movies-grid > * {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movies-grid > *:hover {
+  transform: scale(1.035);
+  box-shadow: 0 10px 30px rgba(255, 0, 80, 0.15);
+}
+
+@media (max-width: 639px) {
+  .home {
+    padding: 1rem 0;
+  }
+
+  .search-form {
+    margin-bottom: 1rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+}

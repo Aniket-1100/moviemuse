@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+client/node_modules/
+build/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+
+# OS-specific
+.DS_Store
+
+# Vercel/Netlify/etc
+.vercel/
+.netlify/

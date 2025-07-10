@@ -1,0 +1,234 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a1a, #101010);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  margin: 12px;
+  flex-shrink: 0;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px #e50914, 0 0 40px rgba(229, 9, 20, 0.4);
+  border: 1px solid #e50914;
+}
+
+.left {
+  width: 100%;
+  height: 190px;
+  background: linear-gradient(145deg, #222, #111);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.4s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.movie-card:hover .left img {
+  transform: scale(1.08);
+}
+
+.details {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+}
+
+.details h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.movie-card:hover .details h4 {
+  color: #ff4b5c;
+  text-shadow: 0 0 10px rgba(255, 75, 92, 0.5);
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.watch-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.watch-btn {
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+  border: 1px solid #444;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.watch-btn:hover {
+  background-color: #1e1e1e;
+  color: #e50914;
+  border-color: #e50914;
+}
+
+.watch-btn.active {
+  background: linear-gradient(135deg, #e50914, #ff3131);
+  color: #fff;
+  border-color: #ff3131;
+  font-weight: 600;
+}
+
+.favorite-btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #e50914;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+  color: #ff4b5c;
+}
+
+.no-image {
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+}
+
+.skeleton {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3a3a3a 25%, #444 50%, #3a3a3a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeInModal 0.3s ease-in-out;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-box {
+  background: linear-gradient(135deg, #181818, #111111);
+  color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  max-width: 540px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  animation: slideIn 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-image {
+  display: block;
+  max-width: 100%;
+  max-height: 300px;
+  margin: 0 auto 18px;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  margin-top: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e50914;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: #c40812;
+  transform: scale(1.05);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .movie-card {
+    max-width: 100%;
+  }
+
+  .watch-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modal-box {
+    max-width: 95%;
+  }
+}
