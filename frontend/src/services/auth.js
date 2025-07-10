@@ -1,6 +1,4 @@
-// services/auth.js
-
-const API_BASE = "http://localhost:5000/api/auth"; // your backend URL
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export const loginUser = async (email, password) => {
   const res = await fetch(`${API_BASE}/login`, {
@@ -14,14 +12,14 @@ export const loginUser = async (email, password) => {
     throw new Error(errorData.message || "Login failed");
   }
 
-  return await res.json(); // { token, user }
+  return await res.json();
 };
 
 export const signupUser = async (email, password) => {
   const res = await fetch(`${API_BASE}/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }), // ✅ no 'name'
+    body: JSON.stringify({ email, password }),
   });
 
   if (!res.ok) {
@@ -29,5 +27,5 @@ export const signupUser = async (email, password) => {
     throw new Error(errorData.message || "Signup failed");
   }
 
-  return await res.json(); // { token, user }
+  return await res.json();
 };
